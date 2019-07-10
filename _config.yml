@@ -4,7 +4,7 @@
 title: Tech Stock
 url: "https://hasune.github.io"
 baseurl:
-google_analytics_key: "UA-142178407-1"
+google_analytics_key: ""
 show_full_navigation: true
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
@@ -18,8 +18,6 @@ social:
   name: Edition Template
   links:
 
-# Disqus
-discus-identifier: Wombat0320 # add your discus identifier
 
 # -----
 # Build
