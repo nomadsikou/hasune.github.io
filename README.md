@@ -1,66 +1,11 @@
-# Edition
+# 건망증이 심한 엔지니어
 
-Product documentation template for Jekyll. Browse through a [live demo](https://long-pig.cloudvent.net/).
-Start documenting your product, application, service or website with this configurable theme.
+일을 하면서 얻게되는 기술이나 지식, 혹은 개인적으로 공부하면서 얻게되는 지식들이 하루하루 시간이 가면서 쌓여갑니다.  
+제가 건망증이 심해서 인지는 모르겠습니다만, 얻게되는 지식들을 기록하지 않으면 자꾸 까먹게 되더군요.    
+그래서 블로그를 개설하게 되었습니다.  
+일하다가 지난번에 했었던 어떤것을 또 만들어야 될 때나, 구현해야 될 때, 검증해야 될 때.. 매번 찾았었던것을 또 찾고 또 찾고 하는 작업들은 너무나도 귀찮고 시간또한 아깝기 때문입니다.  
+더 나아가, 제 자신의 지식또한 견고하게 만들어가는 과정중의 하나라고도 생각합니다.  
+이렇게 좋은서비스가 있다는것을, 정적 페이지를 빠르게 만들고 수정할 수 있다는것을 축복으로 생각하며...  
+다른 엔지니어들도 달리고 있는 이 버스에 빠르게 올라 타시기를 바랍니다.
 
-![Edition template screenshot](images/_screenshot.png)
-
-Edition was made by [CloudCannon](http://cloudcannon.com/), the Cloud CMS for Jekyll.
-
-Find more templates, themes and step-by-step Jekyll tutorials at [CloudCannon Academy](https://learn.cloudcannon.com/).
-
-## Features
-
-* Two column layout
-* Full text search
-* Pre-styled components
-* Auto-generated navigation based on category
-* Optimised for editing in [CloudCannon](http://cloudcannon.com/)
-* Change log
-* RSS/Atom feed
-* SEO tags
-* Google Analytics
-
-## Setup
-
-1. Add your site and author details in `_config.yml`.
-2. Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or Jekyll locally).
-
-## Develop
-
-Edition was built with [Jekyll](http://jekyllrb.com/) version 3.3.1, but should support newer versions as well.
-
-Install the dependencies with [Bundler](http://bundler.io/):
-
-~~~bash
-$ bundle install
-~~~
-
-Run `jekyll` commands through Bundler to ensure you're using the right versions:
-
-~~~bash
-$ bundle exec jekyll serve
-~~~
-
-## Editing
-
-Edition is already optimised for adding, updating and removing documentation pages in CloudCannon.
-
-### Documentation pages
-
-* Add, update or remove a documentation page in the *Documentation* collection.
-* Change the category of a documentation page to move it to another section in the navigation.
-* Documentation pages are organised in the navigation by category, with URLs based on the path inside the `_docs` folder.
-
-### Change log
-
-* Add, update or remove change log entries from your posts.
-* Tag entries as minor or major in the front matter.
-
-### Search
-
-* Add `excluded_in_search: true` to any documentation page's front matter to exclude that page in the search results.
-
-### Navigation
-
-* Change `site.show_full_navigation` to control all or only the current navigation group being open.
+2019년 7월 어느날...
