@@ -76,6 +76,9 @@
 			</div>
 			<article class="content">
 				<h5>{{ content }}</h5>
+				{% if site.disqus.shortname %}
+  					{% include disqus.html %}
+				{% endif %}
 			</article>
 		</section>
 
@@ -85,6 +88,5 @@
 			});
 		</script>
 		{% include analytics.html %}
-		{% include disqus.html %}
 	</body>
 </html>
