@@ -20,7 +20,7 @@
 				ga('create', '{{ site.google_analytics_key }}', 'auto');
 				ga('send', 'pageview');
 			</script>
-			<script async src='https://www.googletagmanager.com/gtag/js?id=UA-142178407-1'></script>
+			<script async src='https://www.google-analytics.com/analytics.js'></script>
 		{% endif %}
 	</head>
 
@@ -84,5 +84,6 @@
 				document.body.classList.toggle("nav-open");
 			});
 		</script>
+		{% include analytics.html %}
 	</body>
 </html>
