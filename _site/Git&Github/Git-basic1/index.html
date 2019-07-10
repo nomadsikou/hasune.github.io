@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>기본중의 기본 | Tech Stock</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="기본중의 기본" />
+<meta name="author" content="hasune" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="리포지토리를 만들기 이전에 알아야 할 것. private : 비공개 프로젝트 public : 공개 프로젝트(업로드는 제한 할 수 있다) Github 사용법 ■ Gitbash 설치 윈도우용 깃 : https://gitforwindows.org/ 다운로드 버튼을 누르면 자동으로 다운로드가 진행되고 그 파일을 설치한다 ■ new repsitory 생성 github사이트에서 로그인후에 새프로젝트 생성 생성하면 깃의 주소가 나옴. 이 화면에서 일단 멈춰둔다. ■ 로컬환경과 Github를 연결 자신의 로컬 컴퓨터의 임의의 디렉토리와 웹상의 Github를 연결해주는 과정 임의로 폴더를 만든후 오른쪽 클릭후 git bash here를 선택. 커맨드 프롬프트가 나온다. 거기서 git init 을 친다. git init 치고난 후 윈도우 상태에서 해당 폴더를 살펴보면.git 이라는 폴더가 생성되어있다. 다음은 리모트 컨트롤할 대상 리포지토리를 추가해준다 git remote add origin (repository address) ex) git remote add origin https://github.com/abcdef/abcdef.git git remote add origin https://github.com/babo/babo-web 아무런 말이 뜨지 않으면 정상적으로 된것임 여기서 포인트. origin은 리모트 컨트롤 할때 그 대상을 가리키는것 이며 기본지정명 이다. 즉, 리포지토리 default name이라고 이해하면됨. 오리진 마스터 라고도 하는데. 마스터는 무엇인가? 물리적 저장소를 뜻한다. 흔히 DB에서 회원정보 테이블, 회원상세 테이블 이라는 테이블이 있다고 할때, 회원정보 마스터, 회원상세 마스터 라고도 부르는데, 바로 그때의 마스터와 같은 의미라고 보면된다. (Master : 물리적 저장공간을 뜻함) 그러므로, origin master 라는것은 git에서 리포지토리명으로 기본설정된 origin이라는 물리적 저장소(master)를 뜻한다. ■ push 전엔 pull이 있다 pull전에 push를 하면 모든것을 날려먹는 불운의 결과를 초례하므로 항상 pull후에 push를 하는것을 기억하라 pull : 깃허브 레포지토리에서 로컬 레포지토리로 땡겨오는것 push : 깃허브 레포지토리로 올리는것(최종적으로 올리는작업) 아까 지정한 폴더로 레포지토리의 모든것을 한번에 끌어오는 커맨드 git pull origin master 현재 나의 로컬 폴더와 깃과의 상태를 체크해줌 git status 로컬 리포지토리에서 커밋 인덱스에 추가(커밋할 대상을 추가) 밑의 경우는 전부(하위디렉토리와 그안의 파일들까지)추가 할때의 명령어 git add . 특정 파일만을 커밋 인덱스에 추가할때에는 git add hello.txt # hello.txt라는 파일 하나만 추가함 git add hello.txt world.txt # hello.txt 와 world.txt 두개의 파일을 추가함 대화상자를 열어서 선택하는 방법도 있다 git add -i # 번호선택 식으로 진행하면되고, 선택된 파일이나 디렉토리는 *(아스타리스크가 붙음) ■ 커밋을 하자! git commit -m &quot;message&quot; # 변경 내용을 message에 써주면 된다 ■ 리모트 리포지토리로 올리는것(push) 로컬리포지토리에서 커밋한 후에, 실질적으로 리모트 리포지토리에 올리는 작업이 push 이다. git push origin master 이렇게 치면 id와 패스워드를 묻는 창이 뜨고 입력하면 푸쉬가 완료 된다. 포인트 정리. pull을 할때는 다음과 같은명령어(한개) git pull origin master push를 할때는 다음과 같은 명령어가 기본적으로 사용됨(4개) git status git add . git commit -m “message” git push origin +master 처음일 경우 이렇게 뜨는데 이럴때는 이메일과 네임 설정을 해줘야한다 ****************************************************************** *** Please tell me who you are. Run git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot; to set your account&#39;s default identity. Omit --global to set the identity only in this repository. ******************************************************************** 이런식으로 쳐주면 됨 git config --global user.email &quot;abcdefg@naver.com&quot; git config --global user.name &quot;abcdef&quot; 치고난후 컨피그 확인하는 명령어 git config --list" />
+<meta property="og:description" content="리포지토리를 만들기 이전에 알아야 할 것. private : 비공개 프로젝트 public : 공개 프로젝트(업로드는 제한 할 수 있다) Github 사용법 ■ Gitbash 설치 윈도우용 깃 : https://gitforwindows.org/ 다운로드 버튼을 누르면 자동으로 다운로드가 진행되고 그 파일을 설치한다 ■ new repsitory 생성 github사이트에서 로그인후에 새프로젝트 생성 생성하면 깃의 주소가 나옴. 이 화면에서 일단 멈춰둔다. ■ 로컬환경과 Github를 연결 자신의 로컬 컴퓨터의 임의의 디렉토리와 웹상의 Github를 연결해주는 과정 임의로 폴더를 만든후 오른쪽 클릭후 git bash here를 선택. 커맨드 프롬프트가 나온다. 거기서 git init 을 친다. git init 치고난 후 윈도우 상태에서 해당 폴더를 살펴보면.git 이라는 폴더가 생성되어있다. 다음은 리모트 컨트롤할 대상 리포지토리를 추가해준다 git remote add origin (repository address) ex) git remote add origin https://github.com/abcdef/abcdef.git git remote add origin https://github.com/babo/babo-web 아무런 말이 뜨지 않으면 정상적으로 된것임 여기서 포인트. origin은 리모트 컨트롤 할때 그 대상을 가리키는것 이며 기본지정명 이다. 즉, 리포지토리 default name이라고 이해하면됨. 오리진 마스터 라고도 하는데. 마스터는 무엇인가? 물리적 저장소를 뜻한다. 흔히 DB에서 회원정보 테이블, 회원상세 테이블 이라는 테이블이 있다고 할때, 회원정보 마스터, 회원상세 마스터 라고도 부르는데, 바로 그때의 마스터와 같은 의미라고 보면된다. (Master : 물리적 저장공간을 뜻함) 그러므로, origin master 라는것은 git에서 리포지토리명으로 기본설정된 origin이라는 물리적 저장소(master)를 뜻한다. ■ push 전엔 pull이 있다 pull전에 push를 하면 모든것을 날려먹는 불운의 결과를 초례하므로 항상 pull후에 push를 하는것을 기억하라 pull : 깃허브 레포지토리에서 로컬 레포지토리로 땡겨오는것 push : 깃허브 레포지토리로 올리는것(최종적으로 올리는작업) 아까 지정한 폴더로 레포지토리의 모든것을 한번에 끌어오는 커맨드 git pull origin master 현재 나의 로컬 폴더와 깃과의 상태를 체크해줌 git status 로컬 리포지토리에서 커밋 인덱스에 추가(커밋할 대상을 추가) 밑의 경우는 전부(하위디렉토리와 그안의 파일들까지)추가 할때의 명령어 git add . 특정 파일만을 커밋 인덱스에 추가할때에는 git add hello.txt # hello.txt라는 파일 하나만 추가함 git add hello.txt world.txt # hello.txt 와 world.txt 두개의 파일을 추가함 대화상자를 열어서 선택하는 방법도 있다 git add -i # 번호선택 식으로 진행하면되고, 선택된 파일이나 디렉토리는 *(아스타리스크가 붙음) ■ 커밋을 하자! git commit -m &quot;message&quot; # 변경 내용을 message에 써주면 된다 ■ 리모트 리포지토리로 올리는것(push) 로컬리포지토리에서 커밋한 후에, 실질적으로 리모트 리포지토리에 올리는 작업이 push 이다. git push origin master 이렇게 치면 id와 패스워드를 묻는 창이 뜨고 입력하면 푸쉬가 완료 된다. 포인트 정리. pull을 할때는 다음과 같은명령어(한개) git pull origin master push를 할때는 다음과 같은 명령어가 기본적으로 사용됨(4개) git status git add . git commit -m “message” git push origin +master 처음일 경우 이렇게 뜨는데 이럴때는 이메일과 네임 설정을 해줘야한다 ****************************************************************** *** Please tell me who you are. Run git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot; to set your account&#39;s default identity. Omit --global to set the identity only in this repository. ******************************************************************** 이런식으로 쳐주면 됨 git config --global user.email &quot;abcdefg@naver.com&quot; git config --global user.name &quot;abcdef&quot; 치고난후 컨피그 확인하는 명령어 git config --list" />
+<link rel="canonical" href="http://localhost:4000/Git&Github/Git-basic1/" />
+<meta property="og:url" content="http://localhost:4000/Git&Github/Git-basic1/" />
+<meta property="og:site_name" content="Tech Stock" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Git&Github/Git-basic1/","headline":"기본중의 기본","author":{"@type":"Person","name":"hasune"},"description":"리포지토리를 만들기 이전에 알아야 할 것. private : 비공개 프로젝트 public : 공개 프로젝트(업로드는 제한 할 수 있다) Github 사용법 ■ Gitbash 설치 윈도우용 깃 : https://gitforwindows.org/ 다운로드 버튼을 누르면 자동으로 다운로드가 진행되고 그 파일을 설치한다 ■ new repsitory 생성 github사이트에서 로그인후에 새프로젝트 생성 생성하면 깃의 주소가 나옴. 이 화면에서 일단 멈춰둔다. ■ 로컬환경과 Github를 연결 자신의 로컬 컴퓨터의 임의의 디렉토리와 웹상의 Github를 연결해주는 과정 임의로 폴더를 만든후 오른쪽 클릭후 git bash here를 선택. 커맨드 프롬프트가 나온다. 거기서 git init 을 친다. git init 치고난 후 윈도우 상태에서 해당 폴더를 살펴보면.git 이라는 폴더가 생성되어있다. 다음은 리모트 컨트롤할 대상 리포지토리를 추가해준다 git remote add origin (repository address) ex) git remote add origin https://github.com/abcdef/abcdef.git git remote add origin https://github.com/babo/babo-web 아무런 말이 뜨지 않으면 정상적으로 된것임 여기서 포인트. origin은 리모트 컨트롤 할때 그 대상을 가리키는것 이며 기본지정명 이다. 즉, 리포지토리 default name이라고 이해하면됨. 오리진 마스터 라고도 하는데. 마스터는 무엇인가? 물리적 저장소를 뜻한다. 흔히 DB에서 회원정보 테이블, 회원상세 테이블 이라는 테이블이 있다고 할때, 회원정보 마스터, 회원상세 마스터 라고도 부르는데, 바로 그때의 마스터와 같은 의미라고 보면된다. (Master : 물리적 저장공간을 뜻함) 그러므로, origin master 라는것은 git에서 리포지토리명으로 기본설정된 origin이라는 물리적 저장소(master)를 뜻한다. ■ push 전엔 pull이 있다 pull전에 push를 하면 모든것을 날려먹는 불운의 결과를 초례하므로 항상 pull후에 push를 하는것을 기억하라 pull : 깃허브 레포지토리에서 로컬 레포지토리로 땡겨오는것 push : 깃허브 레포지토리로 올리는것(최종적으로 올리는작업) 아까 지정한 폴더로 레포지토리의 모든것을 한번에 끌어오는 커맨드 git pull origin master 현재 나의 로컬 폴더와 깃과의 상태를 체크해줌 git status 로컬 리포지토리에서 커밋 인덱스에 추가(커밋할 대상을 추가) 밑의 경우는 전부(하위디렉토리와 그안의 파일들까지)추가 할때의 명령어 git add . 특정 파일만을 커밋 인덱스에 추가할때에는 git add hello.txt # hello.txt라는 파일 하나만 추가함 git add hello.txt world.txt # hello.txt 와 world.txt 두개의 파일을 추가함 대화상자를 열어서 선택하는 방법도 있다 git add -i # 번호선택 식으로 진행하면되고, 선택된 파일이나 디렉토리는 *(아스타리스크가 붙음) ■ 커밋을 하자! git commit -m &quot;message&quot; # 변경 내용을 message에 써주면 된다 ■ 리모트 리포지토리로 올리는것(push) 로컬리포지토리에서 커밋한 후에, 실질적으로 리모트 리포지토리에 올리는 작업이 push 이다. git push origin master 이렇게 치면 id와 패스워드를 묻는 창이 뜨고 입력하면 푸쉬가 완료 된다. 포인트 정리. pull을 할때는 다음과 같은명령어(한개) git pull origin master push를 할때는 다음과 같은 명령어가 기본적으로 사용됨(4개) git status git add . git commit -m “message” git push origin +master 처음일 경우 이렇게 뜨는데 이럴때는 이메일과 네임 설정을 해줘야한다 ****************************************************************** *** Please tell me who you are. Run git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot; to set your account&#39;s default identity. Omit --global to set the identity only in this repository. ******************************************************************** 이런식으로 쳐주면 됨 git config --global user.email &quot;abcdefg@naver.com&quot; git config --global user.name &quot;abcdef&quot; 치고난후 컨피그 확인하는 명령어 git config --list","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/siteicon.png"},"name":"hasune"},"@type":"Article","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+		<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tech Stock" />
+
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="/images/favicon.png">
+
+		
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="/"><img src="/images/emblem.svg" width="40" height="40" alt="Tech Stock logo"></a>
+				Tech Stock
+				<button type="button" class="open-nav" id="open-nav"></button>
+			</h1>
+
+			<form action="/search/" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Search" autofocus>
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<nav class="full-navigation">
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="/">건망증이 심한 엔지니어</a>
+					</li>
+				</ul>
+
+				<ul>
+					
+					
+						<li class="nav-item top-level current">
+							
+							<a href="/Git&Github/Git-basic1/">Git&Github</a>
+							<ul>
+								
+									<li class="nav-item current"><a href="/Git&Github/Git-basic1/">기본중의 기본</a></li>
+								
+									<li class="nav-item "><a href="/Git&Github/Git-basic2/">Branch관리</a></li>
+								
+									<li class="nav-item "><a href="/Git&Github/Git-basic3/">Conflict관리</a></li>
+								
+									<li class="nav-item "><a href="/Git&Github/Git-basic4/">Pull Fetch Clone Rebase Fork</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/IDE&Editor/Eclipse-shortcutkey/">IDE&Editor</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/IDE&Editor/Eclipse-shortcutkey/">Eclipse Shortcut Key</a></li>
+								
+									<li class="nav-item "><a href="/IDE&Editor/vi-vim-shorcutkey/">VI & VIM editor Shortcut key</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Java/Array-List/">Java</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Java/Array-List/">ArrayList 개념정리</a></li>
+								
+									<li class="nav-item "><a href="/Java/HashMap/">HashMap 개념정리</a></li>
+								
+									<li class="nav-item "><a href="/Java/Generic/">Generic이란 어떤놈인가</a></li>
+								
+									<li class="nav-item "><a href="/Java/JavaPATH/">맨날 까먹는 환경변수 설정 Win&Linux</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Linux/BashShell-basic1/">Linux</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Linux/BashShell-basic1/">BashShell 기본중의 기본 1편</a></li>
+								
+									<li class="nav-item "><a href="/Linux/BashShell-basic2/">BashShell 기본중의 기본 2편</a></li>
+								
+									<li class="nav-item "><a href="/Linux/BashShell-basic3/">BashShell 기본중의 기본 3편</a></li>
+								
+									<li class="nav-item "><a href="/Linux/Curl-RESTfulAPI/">Curl 과 Restful API</a></li>
+								
+									<li class="nav-item "><a href="/Linux/etc-hosts/">Linux에서 /etc/hosts 에 대해</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Mybatis/Basic-Structure/">Mybatis</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Mybatis/Basic-Structure/">마이바티스의 기본구조</a></li>
+								
+									<li class="nav-item "><a href="/Mybatis/Basic1/">마이바티스의 기본사용</a></li>
+								
+									<li class="nav-item "><a href="/Mybatis/HandleResult/">대량쿼리문에 좋은 핸들 리절트</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Oracle/JOIN/">Oracle</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Oracle/JOIN/">Join</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/SUB-QUERY/">Sub-query</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/VIEW/">View</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/INDEX/">Index</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/Operator/">Operator 기본(연산자)</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/SEQUENCE/">Sequence</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/Function/">Function 기본 함수</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/If-For-Case/">If문 For문 Case문</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Performance/DB-Index1/">Performance</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Performance/DB-Index1/">DB에서 Index를 통한 성능개선 1</a></li>
+								
+									<li class="nav-item "><a href="/Performance/DB-Index2/">DB에서 Index를 통한 성능개선 2</a></li>
+								
+									<li class="nav-item "><a href="/Performance/managed-programming/">성능을 염두한 프로그래밍</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Postgres/JOIN/">Postgres</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Postgres/JOIN/">Join 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/SUB-QUERY/">Sub-query 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/VIEW/">View 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/INDEX/">Index 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/Operator/">Operator 기본(연산자) 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/SEQUENCE/">Sequence 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/Function/">Function 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/If-For-Case/">If문 For문 Case문 오라클과 비교</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Regular%20expression/regexp-with-java/">Regular expression</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-java/">자바에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-linux/">리눅스 에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-oracle/">오라클 에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-postgres/">포스그레 에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-ruby/">루비 에서의 정규표현</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Ruby/images/">Ruby</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Ruby/images/">Images</a></li>
+								
+									<li class="nav-item "><a href="/Ruby/video/">Video</a></li>
+								
+									<li class="nav-item "><a href="/Ruby/documents/">Documents</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Scrap/explain-scrap/">Scrap</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Scrap/explain-scrap/">제대로된 설명</a></li>
+								
+									<li class="nav-item "><a href="/Scrap/Trendy-tool/">유행하는 툴</a></li>
+								
+									<li class="nav-item "><a href="/Scrap/video/">좋은 영상</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Security/EX/">Security</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Security/EX/">해킹 유형과 사례</a></li>
+								
+									<li class="nav-item "><a href="/Security/security-DB/">보안을 염두한 DB관리</a></li>
+								
+									<li class="nav-item "><a href="/Security/security-coding/">보안을 염두한 프로그래밍</a></li>
+								
+									<li class="nav-item "><a href="/Security/security-linux/">보안을 염두한 Linux관리</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Spring/Basic-Structure1/">Spring</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Spring/Basic-Structure1/">스프링 기본구조 1</a></li>
+								
+									<li class="nav-item "><a href="/Spring/Basic-Structure2/">스프링 기본구조 2</a></li>
+								
+									<li class="nav-item "><a href="/Spring/Dependency-Injection/">DI 의존주입</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Trend&News/Ruby/">Trend&News</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Trend&News/Ruby/">Ruby는 뜬다?</a></li>
+								
+									<li class="nav-item "><a href="/Trend&News/Static-Site/">정적 사이트의 반란</a></li>
+								
+									<li class="nav-item "><a href="/Trend&News/GIthub/">마소 형님들이 한건 하심.</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/VScode/VScode-setting/">VScode</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/VScode/VScode-setting/">VScode 유용한 설정들</a></li>
+								
+									<li class="nav-item "><a href="/VScode/VScode-shortcutkey/">VScode 유용한 단축키</a></li>
+								
+									<li class="nav-item "><a href="/VScode/VScode-Extends/">VScode 유용한 확장어플</a></li>
+								
+							</ul>
+						</li>
+					
+				</ul>
+
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="/changelog/">Change Log</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Git&Github</h2>
+				<h3>기본중의 기본</h3>
+			</div>
+			<article class="content">
+				<h5><p>리포지토리를 만들기 이전에 알아야 할 것.</p>
+<ul>
+  <li>private : 비공개 프로젝트</li>
+  <li>public  : 공개 프로젝트(업로드는 제한 할 수 있다)</li>
+</ul>
+
+<p>Github 사용법</p>
+
+<p>■ Gitbash 설치</p>
+<blockquote>
+  <p><a href="https://gitforwindows.org/">윈도우용 깃 : https://gitforwindows.org/</a></p>
+</blockquote>
+
+<p>다운로드 버튼을 누르면 자동으로 다운로드가 진행되고 그 파일을 설치한다</p>
+
+<p>■ new repsitory 생성</p>
+<blockquote>
+  <p>github사이트에서 로그인후에 새프로젝트 생성</p>
+</blockquote>
+
+<p>생성하면 깃의 주소가 나옴. 이 화면에서 일단 멈춰둔다.</p>
+
+<p>■ 로컬환경과 Github를 연결<br />
+자신의 로컬 컴퓨터의 임의의 디렉토리와 웹상의 Github를 연결해주는 과정</p>
+
+<p>임의로 폴더를 만든후 오른쪽 클릭후 git bash here를 선택.<br />
+커맨드 프롬프트가 나온다.</p>
+
+<p>거기서 git init 을 친다.</p>
+<pre><code class="language-git">git init
+</code></pre>
+
+<p>치고난 후 윈도우 상태에서 해당 폴더를 살펴보면.git 이라는 폴더가 생성되어있다.</p>
+
+<p>다음은 리모트 컨트롤할 대상 리포지토리를 추가해준다</p>
+<pre><code class="language-git">git remote add origin (repository address)
+</code></pre>
+<p>ex)</p>
+<pre><code class="language-git">git remote add origin https://github.com/abcdef/abcdef.git
+git remote add origin https://github.com/babo/babo-web
+</code></pre>
+<p><em>아무런 말이 뜨지 않으면 정상적으로 된것임</em></p>
+
+<blockquote>
+  <p>여기서 포인트.</p>
+</blockquote>
+
+<p>origin은 리모트 컨트롤 할때 그 대상을 가리키는것 이며 기본지정명 이다.<br />
+즉, 리포지토리 default name이라고 이해하면됨.<br />
+오리진 마스터 라고도 하는데. 마스터는 무엇인가?<br />
+물리적 저장소를 뜻한다. 흔히 DB에서 회원정보 테이블, 회원상세 테이블 이라는 테이블이 있다고 할때, 회원정보 마스터, 회원상세 마스터 라고도 부르는데, 바로 그때의 마스터와 같은 의미라고 보면된다. (Master : 물리적 저장공간을 뜻함)</p>
+
+<p><em>그러므로, origin master 라는것은 git에서 리포지토리명으로 기본설정된 origin이라는 물리적 저장소(master)를 뜻한다.</em></p>
+
+<p>■ push 전엔 pull이 있다
+pull전에 push를 하면 모든것을 날려먹는 불운의 결과를 초례하므로
+항상 pull후에 push를 하는것을 기억하라</p>
+
+<ul>
+  <li>pull : 깃허브 레포지토리에서 로컬 레포지토리로 땡겨오는것</li>
+  <li>push : 깃허브 레포지토리로 올리는것(최종적으로 올리는작업)</li>
+</ul>
+
+<p>아까 지정한 폴더로 레포지토리의 모든것을 한번에 끌어오는 커맨드</p>
+<pre><code class="language-git">git pull origin master
+</code></pre>
+
+<p>현재 나의 로컬 폴더와 깃과의 상태를 체크해줌</p>
+<pre><code class="language-git">git status
+</code></pre>
+
+<p>로컬 리포지토리에서 커밋 인덱스에 추가(커밋할 대상을 추가) 밑의 경우는 전부(하위디렉토리와 그안의 파일들까지)추가 할때의 명령어</p>
+<pre><code class="language-git">git add .
+</code></pre>
+<p>특정 파일만을 커밋 인덱스에 추가할때에는</p>
+<pre><code class="language-git">git add hello.txt           # hello.txt라는 파일 하나만 추가함
+git add hello.txt world.txt # hello.txt 와 world.txt 두개의 파일을 추가함
+</code></pre>
+
+<p>대화상자를 열어서 선택하는 방법도 있다</p>
+<pre><code class="language-git">git add -i # 번호선택 식으로 진행하면되고, 선택된 파일이나 디렉토리는 *(아스타리스크가 붙음)
+</code></pre>
+
+<p>■ 커밋을 하자!</p>
+<pre><code class="language-git">git commit -m "message" # 변경 내용을 message에 써주면 된다
+</code></pre>
+
+<p>■ 리모트 리포지토리로 올리는것(push)<br />
+로컬리포지토리에서 커밋한 후에, 실질적으로 리모트 리포지토리에 올리는 작업이 push 이다.</p>
+<pre><code class="language-git">git push origin master
+</code></pre>
+<p>이렇게 치면 id와 패스워드를 묻는 창이 뜨고  입력하면 푸쉬가 완료 된다.</p>
+
+<hr />
+<p>포인트 정리.<br />
+pull을 할때는 다음과 같은명령어(한개)</p>
+<ul>
+  <li>git pull origin master</li>
+</ul>
+
+<p>push를 할때는 다음과 같은 명령어가 기본적으로 사용됨(4개)</p>
+<ul>
+  <li>git status</li>
+  <li>git add .</li>
+  <li>git commit -m “message”</li>
+  <li>git push origin +master</li>
+</ul>
+
+<hr />
+<p>처음일 경우 이렇게 뜨는데 이럴때는 이메일과 네임 설정을 해줘야한다</p>
+<pre><code class="language-git">******************************************************************
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+********************************************************************
+</code></pre>
+<p>이런식으로 쳐주면 됨</p>
+
+<pre><code class="language-git">git config --global user.email "abcdefg@naver.com"
+git config --global user.name "abcdef"  
+</code></pre>
+
+<p>치고난후 컨피그 확인하는 명령어</p>
+<pre><code class="language-git">git config --list
+</code></pre>
+
+</h5>
+				
+  					<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tech-stock.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				
+			</article>
+		</section>
+
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142178407-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142178407-1');
+</script>
+
+
+	</body>
+</html>

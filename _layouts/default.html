@@ -76,7 +76,7 @@
 			</div>
 			<article class="content">
 				<h5>{{ content }}</h5>
-				{% if site.disqus.shortname %}
+				{% if page.comments %}
   					{% include disqus.html %}
 				{% endif %}
 			</article>

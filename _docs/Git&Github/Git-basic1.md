@@ -1,6 +1,7 @@
 ---
 title: 기본중의 기본
 category: Git&Github
+comments: true
 order: 1
 ---
 
