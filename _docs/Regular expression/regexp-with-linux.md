@@ -1,6 +1,7 @@
 ---
 title: 리눅스 에서의 정규표현
 category: Regular expression
+comments: true
 order: 2
 ---
 

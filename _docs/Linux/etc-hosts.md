@@ -1,6 +1,7 @@
 ---
 title: Linux에서 /etc/hosts 에 대해
 category: Linux
+comments: true
 order: 5
 ---
 

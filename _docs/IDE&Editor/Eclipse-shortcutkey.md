@@ -1,6 +1,7 @@
 ---
 title: Eclipse Shortcut Key
 category: IDE&Editor
+comments: true
 order: 1
 ---
 

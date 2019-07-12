@@ -1,6 +1,7 @@
 ---
 title: 해킹 유형과 사례
 category: Security
+comments: true
 order: 1
 ---
 

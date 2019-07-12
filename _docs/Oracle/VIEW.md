@@ -1,6 +1,7 @@
 ---
 title: View
 category: Oracle
+comments: true
 order: 3
 ---
 

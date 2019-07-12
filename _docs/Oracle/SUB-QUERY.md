@@ -1,6 +1,7 @@
 ---
 title: Sub-query
 category: Oracle
+comments: true
 order: 2
 ---
 

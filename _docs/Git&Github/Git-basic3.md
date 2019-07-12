@@ -1,6 +1,7 @@
 ---
 title: Conflict관리
 category: Git&Github
+comments: true
 order: 3
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Documents
 category: Ruby
+comments: true
 order: 3
 ---
 

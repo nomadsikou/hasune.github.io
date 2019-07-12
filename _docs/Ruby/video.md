@@ -1,6 +1,7 @@
 ---
 title: Video
 category: Ruby
+comments: true
 order: 2
 ---
 

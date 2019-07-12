@@ -1,6 +1,7 @@
 ---
 title: 유행하는 툴
 category: Scrap
+comments: true
 order: 2
 ---
 

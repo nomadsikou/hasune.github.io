@@ -1,6 +1,7 @@
 ---
 title: VScode 유용한 설정들
 category: VScode
+comments: true
 order: 1
 ---
   

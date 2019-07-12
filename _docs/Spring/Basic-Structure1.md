@@ -1,6 +1,7 @@
 ---
 title: 스프링 기본구조 1
 category: Spring
+comments: true
 order: 1
 ---
 

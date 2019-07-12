@@ -1,6 +1,7 @@
 ---
 title: 정적 사이트의 반란
 category: Trend&News
+comments: true
 order: 2
 ---
 

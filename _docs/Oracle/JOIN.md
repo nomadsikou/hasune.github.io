@@ -1,6 +1,7 @@
 ---
 title: Join
 category: Oracle
+comments: true
 order: 1
 ---
 

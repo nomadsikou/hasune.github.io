@@ -1,6 +1,7 @@
 ---
 title: 좋은 영상
 category: Scrap
+comments: true
 order: 3
 ---
 

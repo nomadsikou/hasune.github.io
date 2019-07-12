@@ -1,6 +1,7 @@
 ---
 title: Ruby는 뜬다?
 category: Trend&News
+comments: true
 order: 1
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 제대로된 설명
 category: Scrap
+comments: true
 order: 1
 ---
 

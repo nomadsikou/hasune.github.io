@@ -1,6 +1,7 @@
 ---
 title: Pull Fetch Clone Rebase Fork
 category: Git&Github
+comments: true
 order: 4
 ---
 

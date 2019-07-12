@@ -1,6 +1,7 @@
 ---
 title: Images
 category: Ruby
+comments: true
 order: 1
 ---
 
