@@ -1,5 +1,5 @@
 ---
-title: rails basic 1 
+title: Rails 기초
 category: Ruby
 comments: true
 order: 1
