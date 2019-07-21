@@ -47,3 +47,9 @@ ABD0010 ...  OK
 TTD0190 ...  OK(ABEND이면 차라리 괜찮음)  
 TTD0191 ...  OK(ABEND이면 차라리 괜찮음)  
 TTD0192 ...  OK(ABEND이면 차라리 괜찮음)  
+
+>[링크 : JP1에서의 JobNet와 Nest에 관해](http://itdoc.hitachi.co.jp/manuals/3020/30203S0133/AJSZ0006.HTM)  
+
+- Nest job-net : 루트 잡넷의 하위 잡넷으로 정의 되어있는것을 뜻함
+- Abend : 이상 종료를 뜻함
+
