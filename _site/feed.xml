@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-21T14:02:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tech Stock</title><subtitle>Hasune's blog</subtitle><author><name>hasune</name></author><entry><title type="html">디스커스 댓글기능 셋팅</title><link href="http://localhost:4000/2019/07/14/disqus-setting/" rel="alternate" type="text/html" title="디스커스 댓글기능 셋팅" /><published>2019-07-14T00:00:00+09:00</published><updated>2019-07-14T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/14/disqus-setting</id><content type="html" xml:base="http://localhost:4000/2019/07/14/disqus-setting/">&lt;p&gt;원래 만들어놨는데 잘 작동안해서 다시 셋팅하고 한글로 메뉴 뜨게끔 꼼수부려서 바꿔놓음&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-21T20:53:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tech Stock</title><subtitle>Hasune's blog</subtitle><author><name>hasune</name></author><entry><title type="html">디스커스 댓글기능 셋팅</title><link href="http://localhost:4000/2019/07/14/disqus-setting/" rel="alternate" type="text/html" title="디스커스 댓글기능 셋팅" /><published>2019-07-14T00:00:00+09:00</published><updated>2019-07-14T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/14/disqus-setting</id><content type="html" xml:base="http://localhost:4000/2019/07/14/disqus-setting/">&lt;p&gt;원래 만들어놨는데 잘 작동안해서 다시 셋팅하고 한글로 메뉴 뜨게끔 꼼수부려서 바꿔놓음&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Features:&lt;/strong&gt;&lt;/p&gt;
 
@@ -11,7 +11,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;딱히 없고 포스팅 몇개 추가..&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>hasune</name></author><summary type="html">원래 만들어놨는데 잘 작동안해서 다시 셋팅하고 한글로 메뉴 뜨게끔 꼼수부려서 바꿔놓음 Features: 디스커스 기능이 사용가능하게됨 디스커스 메뉴가 한글로 뜨게됨 Fixes: 딱히 없고 포스팅 몇개 추가..</summary></entry><entry><title type="html">첫포스팅</title><link href="http://localhost:4000/2019/07/09/first-post/" rel="alternate" type="text/html" title="첫포스팅" /><published>2019-07-09T00:00:00+09:00</published><updated>2019-07-09T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/09/first-post</id><content type="html" xml:base="http://localhost:4000/2019/07/09/first-post/">&lt;p&gt;첫 포스팅 테스트&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>hasune</name></author><summary type="html">원래 만들어놨는데 잘 작동안해서 다시 셋팅하고 한글로 메뉴 뜨게끔 꼼수부려서 바꿔놓음</summary></entry><entry><title type="html">첫포스팅</title><link href="http://localhost:4000/2019/07/09/first-post/" rel="alternate" type="text/html" title="첫포스팅" /><published>2019-07-09T00:00:00+09:00</published><updated>2019-07-09T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/09/first-post</id><content type="html" xml:base="http://localhost:4000/2019/07/09/first-post/">&lt;p&gt;첫 포스팅 테스트&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Features:&lt;/strong&gt;&lt;/p&gt;
 
@@ -23,4 +23,4 @@
 
 &lt;ul&gt;
   &lt;li&gt;퍼온다음에 이것저것 뜯어고침&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>hasune</name></author><summary type="html">첫 포스팅 테스트 Features: 기본틀 작성 Fixes: 퍼온다음에 이것저것 뜯어고침</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>hasune</name></author><summary type="html">첫 포스팅 테스트</summary></entry></feed>

@@ -11,13 +11,13 @@
 <meta property="og:title" content="Linux에서 /etc/hosts 에 대해" />
 <meta name="author" content="hasune" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="linux에서 /etc/hosts 를 살펴보면 cat /etc/hosts ##결과 192.168.1.1 Oracle DB 192.168.1.2 file server 이런식으로 나와있는데 흔히 DNS서버와 같은 개념으로 이해하면 된다. Oracle DB라는 주소로 접속하면, 192.168.1.1로 리다이렉트 된다. 즉, /etc/hosts는 ip주소와 호스트명을 1:1 대응식으로 적어놓는 곳 /etc/hosts.allow 와 /etc/hosts.deny 허용과 거부를 기재하는 곳 정확히 말하면 액세스를 허용하는 호스트를 기재하는 곳 예를들어 ALL:192.168.1.100 /etc/hosts.allow에 이런식으로 적혀있으면 모든 서비스를 192.168.1.100으로 접속한놈에게 허용 하겠다는것. deny는 그 반대로 인식하면 됨. 주의. allow와 deny 양쪽에 같은것을 적으면 허용이 됨 allow와 deny 양쪽에 다 적지않으면 허용이 됨 linux는 allow를 먼저 참조하고 그다음에 deny를 참조함" />
-<meta property="og:description" content="linux에서 /etc/hosts 를 살펴보면 cat /etc/hosts ##결과 192.168.1.1 Oracle DB 192.168.1.2 file server 이런식으로 나와있는데 흔히 DNS서버와 같은 개념으로 이해하면 된다. Oracle DB라는 주소로 접속하면, 192.168.1.1로 리다이렉트 된다. 즉, /etc/hosts는 ip주소와 호스트명을 1:1 대응식으로 적어놓는 곳 /etc/hosts.allow 와 /etc/hosts.deny 허용과 거부를 기재하는 곳 정확히 말하면 액세스를 허용하는 호스트를 기재하는 곳 예를들어 ALL:192.168.1.100 /etc/hosts.allow에 이런식으로 적혀있으면 모든 서비스를 192.168.1.100으로 접속한놈에게 허용 하겠다는것. deny는 그 반대로 인식하면 됨. 주의. allow와 deny 양쪽에 같은것을 적으면 허용이 됨 allow와 deny 양쪽에 다 적지않으면 허용이 됨 linux는 allow를 먼저 참조하고 그다음에 deny를 참조함" />
+<meta name="description" content="linux에서 /etc/hosts 를 살펴보면" />
+<meta property="og:description" content="linux에서 /etc/hosts 를 살펴보면" />
 <link rel="canonical" href="http://localhost:4000/Linux/etc-hosts/" />
 <meta property="og:url" content="http://localhost:4000/Linux/etc-hosts/" />
 <meta property="og:site_name" content="Tech Stock" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/Linux/etc-hosts/","headline":"Linux에서 /etc/hosts 에 대해","author":{"@type":"Person","name":"hasune"},"description":"linux에서 /etc/hosts 를 살펴보면 cat /etc/hosts ##결과 192.168.1.1 Oracle DB 192.168.1.2 file server 이런식으로 나와있는데 흔히 DNS서버와 같은 개념으로 이해하면 된다. Oracle DB라는 주소로 접속하면, 192.168.1.1로 리다이렉트 된다. 즉, /etc/hosts는 ip주소와 호스트명을 1:1 대응식으로 적어놓는 곳 /etc/hosts.allow 와 /etc/hosts.deny 허용과 거부를 기재하는 곳 정확히 말하면 액세스를 허용하는 호스트를 기재하는 곳 예를들어 ALL:192.168.1.100 /etc/hosts.allow에 이런식으로 적혀있으면 모든 서비스를 192.168.1.100으로 접속한놈에게 허용 하겠다는것. deny는 그 반대로 인식하면 됨. 주의. allow와 deny 양쪽에 같은것을 적으면 허용이 됨 allow와 deny 양쪽에 다 적지않으면 허용이 됨 linux는 allow를 먼저 참조하고 그다음에 deny를 참조함","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/siteicon.png"},"name":"hasune"},"@type":"Article","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/Linux/etc-hosts/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/siteicon.png"},"name":"hasune"},"headline":"Linux에서 /etc/hosts 에 대해","author":{"@type":"Person","name":"hasune"},"description":"linux에서 /etc/hosts 를 살펴보면","@type":"Article","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 		<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tech Stock" />
@@ -57,10 +57,10 @@
 					
 						<li class="nav-item top-level ">
 							
-							<a href="/Accident&Trouble/Accident/">Accident&Trouble</a>
+							<a href="/Accident&Trouble/honbang-delete/">Accident&Trouble</a>
 							<ul>
 								
-									<li class="nav-item "><a href="/Accident&Trouble/Accident/">혼방 데이터 삭제하고 상황 회피</a></li>
+									<li class="nav-item "><a href="/Accident&Trouble/honbang-delete/">혼방 데이터 삭제하고 상황 회피</a></li>
 								
 							</ul>
 						</li>
@@ -162,9 +162,9 @@
 								
 									<li class="nav-item "><a href="/Oracle/INDEX/">Index</a></li>
 								
-									<li class="nav-item "><a href="/Oracle/Operator/">Operator 기본(연산자)</a></li>
-								
 									<li class="nav-item "><a href="/Oracle/SEQUENCE/">Sequence</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/Operator/">Operator 기본(연산자)</a></li>
 								
 									<li class="nav-item "><a href="/Oracle/Function/">Function 기본 함수</a></li>
 								
@@ -200,9 +200,9 @@
 								
 									<li class="nav-item "><a href="/Postgres/INDEX/">Index 오라클과 비교</a></li>
 								
-									<li class="nav-item "><a href="/Postgres/Operator/">Operator 기본(연산자) 오라클과 비교</a></li>
-								
 									<li class="nav-item "><a href="/Postgres/SEQUENCE/">Sequence 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/Operator/">Operator 기본(연산자) 오라클과 비교</a></li>
 								
 									<li class="nav-item "><a href="/Postgres/Function/">Function 오라클과 비교</a></li>
 								
