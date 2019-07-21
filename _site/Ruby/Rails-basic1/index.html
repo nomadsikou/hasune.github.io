@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Rails 기초 | Tech Stock</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Rails 기초" />
+<meta name="author" content="hasune" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="루비에서 많이 쓰이는 RubyGems devise : 유저등록이나 로그인 인증 omniauth : Oauth기능 kaminari : 일람화면 페이징 기능 프로젝트 생성 rails new projectname 로컬서버 기동 rails s 루비의 로컬서버 기동은 puma라는 놈이 한다. 자바의 tomcat 같은놈이라고 보면됨 home이라는 컨트롤러 생성 generate라고 다 안쓰고 g 라고 써도 된다. rails generate controller home rails g controller home 이건 어디 만들어지냐면 app폴더의 컨트롤러스에. 이름_컨트롤러.rb 로 만들어진다 컨트롤러 클래스 안에있는 메서드는 액션이라고 부른다 class HomeController &lt; ApplicationController def index end def hi @show_message = true @message = &quot;run away&quot; end def result @plus_result = params[:num1].to_i + params[:num2].to_i end end 이런식으로 작성했다고 하자 hi라는 메서드는 액션 메서드라 부른다 이제 액션 메서드에 상응하는 뷰를 만들어줘야한다 views폴더를 보면. 아까 컨트롤러 생성할때 home이라는 네임으로 컨트롤러를 생성했으므로 view의 하위에 home폴더가 있다. 거기서 오른쪽 클릭해서 뉴파일 해서 home폴더안에 뷰를 만들어줘야한다 index.erb라고 만들어준다 컨트롤러의 액션(메소드)명과 뷰의 파일명이 같으면 자동으로 매핑해준다 view는 화면단 내용을 작성하면 된다 그다음 마지막으로 routes.rb를 작성한다 root ‘home#index’ 루트 home컨트롤러 안에 있는 index라는 액션과 연결해 주세요 라는 내용임 컨트롤러에서 view쪽으로 값을 전달하는 방법!! 컨트롤러의 액션 내부에 작성한다 @message = “run away” 이제 뷰에서 &lt;p&gt; &lt;% %&gt; &lt;/p&gt; 이런식으로 작성 &lt;% 요안은 루비코드 작성 가능함 %&gt; 참고로 erb 는 임베디드 루비 의 약자로써 erb안에는 루비코드도 적을수 있다 위에까지는 컨트롤러안의 액션(매서드) 안에 변수를 뷰로 보내는것이였고 이번에는 Form 태그로 request 메세지에 담아서 보낸다 params로 읽는다 url로 request메세지에 담아서 보낸다 를 배워보자 Form 태그는 아이디 비번 입력이라덩가 아니면 검색창이라덩가 html의 폼태그를 말하고 그것에 들어간 데이터를 받아서 어떻게 할것인가임 &lt;form method=“post” action=“/login”&gt; &lt;input type=“text” name=“id”&gt; &lt;input type=“password” name=“pw”&gt; &lt;input type=“checkbox” name=“remember”&gt; &lt;input type =“submit”&gt; &lt;/form&gt; submit은 제출버튼임 폼태그는 정보를 묶어서 보내는 태그. 폼과 input으로 이루어져있다 Form -&gt; method : 어떤방식으로 정보를 전달할건지 (get or post) Action : 어디로 정보를 전달할건지 (url) Input(정보를받는태그) -&gt; type : 어떤 종류의 정보를 받을건지 Name : 정보의 이름 위의 코드는 이런식으로 보여지는데 폼 안에 아이디, 패스워드, 체크박스라는 인풋 테그들이 있다 ———————————————— Id : Password : submit ———————————————— 중요 겟방식은 주소창에 요청내용이 모두 노출됨. 보안성이 취약함 예를들어 네이버 검색창에서 검색하면 위에 주소에 검색어가 뜸 보여주면 안되는정보를 요청할경우에는 포스트를 써야한다 params[:id] #=&gt; “xxxxx” params[:pw] #=&gt; “xxxxx” params[:remember] #=&gt; true 레일스에서는 이런식으로 값을 받게된다 input의 name에 적었던것으로 식별한다 실습 계산기 만들기 엑스 + 와이 = 제출 결과 페이지 컨트롤러 생성 액션 작성 루트 알비 작성 뷰 작성 모델 생성하는법 rails generate model post 모델이 만들어진 후에는 config/migrate 폴더의 migration파일을 수정해준다 rake db:migrate 를 쳐서 컴터가 마이그래이션 파일을 읽어서 테이블을 만들어준다" />
+<meta property="og:description" content="루비에서 많이 쓰이는 RubyGems devise : 유저등록이나 로그인 인증 omniauth : Oauth기능 kaminari : 일람화면 페이징 기능 프로젝트 생성 rails new projectname 로컬서버 기동 rails s 루비의 로컬서버 기동은 puma라는 놈이 한다. 자바의 tomcat 같은놈이라고 보면됨 home이라는 컨트롤러 생성 generate라고 다 안쓰고 g 라고 써도 된다. rails generate controller home rails g controller home 이건 어디 만들어지냐면 app폴더의 컨트롤러스에. 이름_컨트롤러.rb 로 만들어진다 컨트롤러 클래스 안에있는 메서드는 액션이라고 부른다 class HomeController &lt; ApplicationController def index end def hi @show_message = true @message = &quot;run away&quot; end def result @plus_result = params[:num1].to_i + params[:num2].to_i end end 이런식으로 작성했다고 하자 hi라는 메서드는 액션 메서드라 부른다 이제 액션 메서드에 상응하는 뷰를 만들어줘야한다 views폴더를 보면. 아까 컨트롤러 생성할때 home이라는 네임으로 컨트롤러를 생성했으므로 view의 하위에 home폴더가 있다. 거기서 오른쪽 클릭해서 뉴파일 해서 home폴더안에 뷰를 만들어줘야한다 index.erb라고 만들어준다 컨트롤러의 액션(메소드)명과 뷰의 파일명이 같으면 자동으로 매핑해준다 view는 화면단 내용을 작성하면 된다 그다음 마지막으로 routes.rb를 작성한다 root ‘home#index’ 루트 home컨트롤러 안에 있는 index라는 액션과 연결해 주세요 라는 내용임 컨트롤러에서 view쪽으로 값을 전달하는 방법!! 컨트롤러의 액션 내부에 작성한다 @message = “run away” 이제 뷰에서 &lt;p&gt; &lt;% %&gt; &lt;/p&gt; 이런식으로 작성 &lt;% 요안은 루비코드 작성 가능함 %&gt; 참고로 erb 는 임베디드 루비 의 약자로써 erb안에는 루비코드도 적을수 있다 위에까지는 컨트롤러안의 액션(매서드) 안에 변수를 뷰로 보내는것이였고 이번에는 Form 태그로 request 메세지에 담아서 보낸다 params로 읽는다 url로 request메세지에 담아서 보낸다 를 배워보자 Form 태그는 아이디 비번 입력이라덩가 아니면 검색창이라덩가 html의 폼태그를 말하고 그것에 들어간 데이터를 받아서 어떻게 할것인가임 &lt;form method=“post” action=“/login”&gt; &lt;input type=“text” name=“id”&gt; &lt;input type=“password” name=“pw”&gt; &lt;input type=“checkbox” name=“remember”&gt; &lt;input type =“submit”&gt; &lt;/form&gt; submit은 제출버튼임 폼태그는 정보를 묶어서 보내는 태그. 폼과 input으로 이루어져있다 Form -&gt; method : 어떤방식으로 정보를 전달할건지 (get or post) Action : 어디로 정보를 전달할건지 (url) Input(정보를받는태그) -&gt; type : 어떤 종류의 정보를 받을건지 Name : 정보의 이름 위의 코드는 이런식으로 보여지는데 폼 안에 아이디, 패스워드, 체크박스라는 인풋 테그들이 있다 ———————————————— Id : Password : submit ———————————————— 중요 겟방식은 주소창에 요청내용이 모두 노출됨. 보안성이 취약함 예를들어 네이버 검색창에서 검색하면 위에 주소에 검색어가 뜸 보여주면 안되는정보를 요청할경우에는 포스트를 써야한다 params[:id] #=&gt; “xxxxx” params[:pw] #=&gt; “xxxxx” params[:remember] #=&gt; true 레일스에서는 이런식으로 값을 받게된다 input의 name에 적었던것으로 식별한다 실습 계산기 만들기 엑스 + 와이 = 제출 결과 페이지 컨트롤러 생성 액션 작성 루트 알비 작성 뷰 작성 모델 생성하는법 rails generate model post 모델이 만들어진 후에는 config/migrate 폴더의 migration파일을 수정해준다 rake db:migrate 를 쳐서 컴터가 마이그래이션 파일을 읽어서 테이블을 만들어준다" />
+<link rel="canonical" href="http://localhost:4000/Ruby/Rails-basic1/" />
+<meta property="og:url" content="http://localhost:4000/Ruby/Rails-basic1/" />
+<meta property="og:site_name" content="Tech Stock" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Ruby/Rails-basic1/","headline":"Rails 기초","author":{"@type":"Person","name":"hasune"},"description":"루비에서 많이 쓰이는 RubyGems devise : 유저등록이나 로그인 인증 omniauth : Oauth기능 kaminari : 일람화면 페이징 기능 프로젝트 생성 rails new projectname 로컬서버 기동 rails s 루비의 로컬서버 기동은 puma라는 놈이 한다. 자바의 tomcat 같은놈이라고 보면됨 home이라는 컨트롤러 생성 generate라고 다 안쓰고 g 라고 써도 된다. rails generate controller home rails g controller home 이건 어디 만들어지냐면 app폴더의 컨트롤러스에. 이름_컨트롤러.rb 로 만들어진다 컨트롤러 클래스 안에있는 메서드는 액션이라고 부른다 class HomeController &lt; ApplicationController def index end def hi @show_message = true @message = &quot;run away&quot; end def result @plus_result = params[:num1].to_i + params[:num2].to_i end end 이런식으로 작성했다고 하자 hi라는 메서드는 액션 메서드라 부른다 이제 액션 메서드에 상응하는 뷰를 만들어줘야한다 views폴더를 보면. 아까 컨트롤러 생성할때 home이라는 네임으로 컨트롤러를 생성했으므로 view의 하위에 home폴더가 있다. 거기서 오른쪽 클릭해서 뉴파일 해서 home폴더안에 뷰를 만들어줘야한다 index.erb라고 만들어준다 컨트롤러의 액션(메소드)명과 뷰의 파일명이 같으면 자동으로 매핑해준다 view는 화면단 내용을 작성하면 된다 그다음 마지막으로 routes.rb를 작성한다 root ‘home#index’ 루트 home컨트롤러 안에 있는 index라는 액션과 연결해 주세요 라는 내용임 컨트롤러에서 view쪽으로 값을 전달하는 방법!! 컨트롤러의 액션 내부에 작성한다 @message = “run away” 이제 뷰에서 &lt;p&gt; &lt;% %&gt; &lt;/p&gt; 이런식으로 작성 &lt;% 요안은 루비코드 작성 가능함 %&gt; 참고로 erb 는 임베디드 루비 의 약자로써 erb안에는 루비코드도 적을수 있다 위에까지는 컨트롤러안의 액션(매서드) 안에 변수를 뷰로 보내는것이였고 이번에는 Form 태그로 request 메세지에 담아서 보낸다 params로 읽는다 url로 request메세지에 담아서 보낸다 를 배워보자 Form 태그는 아이디 비번 입력이라덩가 아니면 검색창이라덩가 html의 폼태그를 말하고 그것에 들어간 데이터를 받아서 어떻게 할것인가임 &lt;form method=“post” action=“/login”&gt; &lt;input type=“text” name=“id”&gt; &lt;input type=“password” name=“pw”&gt; &lt;input type=“checkbox” name=“remember”&gt; &lt;input type =“submit”&gt; &lt;/form&gt; submit은 제출버튼임 폼태그는 정보를 묶어서 보내는 태그. 폼과 input으로 이루어져있다 Form -&gt; method : 어떤방식으로 정보를 전달할건지 (get or post) Action : 어디로 정보를 전달할건지 (url) Input(정보를받는태그) -&gt; type : 어떤 종류의 정보를 받을건지 Name : 정보의 이름 위의 코드는 이런식으로 보여지는데 폼 안에 아이디, 패스워드, 체크박스라는 인풋 테그들이 있다 ———————————————— Id : Password : submit ———————————————— 중요 겟방식은 주소창에 요청내용이 모두 노출됨. 보안성이 취약함 예를들어 네이버 검색창에서 검색하면 위에 주소에 검색어가 뜸 보여주면 안되는정보를 요청할경우에는 포스트를 써야한다 params[:id] #=&gt; “xxxxx” params[:pw] #=&gt; “xxxxx” params[:remember] #=&gt; true 레일스에서는 이런식으로 값을 받게된다 input의 name에 적었던것으로 식별한다 실습 계산기 만들기 엑스 + 와이 = 제출 결과 페이지 컨트롤러 생성 액션 작성 루트 알비 작성 뷰 작성 모델 생성하는법 rails generate model post 모델이 만들어진 후에는 config/migrate 폴더의 migration파일을 수정해준다 rake db:migrate 를 쳐서 컴터가 마이그래이션 파일을 읽어서 테이블을 만들어준다","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/siteicon.png"},"name":"hasune"},"@type":"Article","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+		<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tech Stock" />
+
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="/images/favicon.png">
+
+		
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				<a href="/"><img src="/images/emblem.svg" width="40" height="40" alt="Tech Stock logo"></a>
+				Tech Stock
+				<button type="button" class="open-nav" id="open-nav"></button>
+			</h1>
+
+			<form action="/search/" method="get">
+				<input type="text" name="q" id="search-input" placeholder="Search" autofocus>
+				<input type="submit" value="Search" style="display: none;">
+			</form>
+
+			<nav class="full-navigation">
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="/">건망증이 심한 엔지니어</a>
+					</li>
+				</ul>
+
+				<ul>
+					
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Accident&Trouble/Accident/">Accident&Trouble</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Accident&Trouble/Accident/">혼방 데이터 삭제하고 상황 회피</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Awesome%20Blogger/Blogger/">Awesome Blogger</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Awesome%20Blogger/Blogger/">학습과 커리어에 도움되는 블로거들</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Git&Github/Git-basic1/">Git&Github</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Git&Github/Git-basic1/">기본중의 기본</a></li>
+								
+									<li class="nav-item "><a href="/Git&Github/Git-basic2/">Branch관리</a></li>
+								
+									<li class="nav-item "><a href="/Git&Github/Git-basic3/">Conflict관리</a></li>
+								
+									<li class="nav-item "><a href="/Git&Github/Git-basic4/">Pull Fetch Clone Rebase Fork</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/IDE&Editor/Eclipse-shortcutkey/">IDE&Editor</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/IDE&Editor/Eclipse-shortcutkey/">Eclipse Shortcut Key</a></li>
+								
+									<li class="nav-item "><a href="/IDE&Editor/vi-vim-shorcutkey/">VI & VIM editor Shortcut key</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Java/Array-List/">Java</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Java/Array-List/">ArrayList 개념정리</a></li>
+								
+									<li class="nav-item "><a href="/Java/HashMap/">HashMap 개념정리</a></li>
+								
+									<li class="nav-item "><a href="/Java/Generic/">Generic이란 어떤놈인가</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Linux/BashShell-basic1/">Linux</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Linux/BashShell-basic1/">BashShell 기본중의 기본 1편</a></li>
+								
+									<li class="nav-item "><a href="/Linux/BashShell-basic2/">BashShell 기본중의 기본 2편</a></li>
+								
+									<li class="nav-item "><a href="/Linux/BashShell-basic3/">BashShell 기본중의 기본 3편</a></li>
+								
+									<li class="nav-item "><a href="/Linux/Curl-RESTfulAPI/">Curl 과 Restful API</a></li>
+								
+									<li class="nav-item "><a href="/Linux/etc-hosts/">Linux에서 /etc/hosts 에 대해</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Mybatis/Basic-Structure/">Mybatis</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Mybatis/Basic-Structure/">마이바티스의 기본구조</a></li>
+								
+									<li class="nav-item "><a href="/Mybatis/Basic1/">마이바티스의 기본사용</a></li>
+								
+									<li class="nav-item "><a href="/Mybatis/HandleResult/">대량쿼리문에 좋은 핸들 리절트</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Oracle/JOIN/">Oracle</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Oracle/JOIN/">Join</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/SUB-QUERY/">Sub-query</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/VIEW/">View</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/INDEX/">Index</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/Operator/">Operator 기본(연산자)</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/SEQUENCE/">Sequence</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/Function/">Function 기본 함수</a></li>
+								
+									<li class="nav-item "><a href="/Oracle/If-For-Case/">If문 For문 Case문</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Performance/DB-Index1/">Performance</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Performance/DB-Index1/">DB에서 Index를 통한 성능개선 1</a></li>
+								
+									<li class="nav-item "><a href="/Performance/DB-Index2/">DB에서 Index를 통한 성능개선 2</a></li>
+								
+									<li class="nav-item "><a href="/Performance/managed-programming/">성능을 염두한 프로그래밍</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Postgres/JOIN/">Postgres</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Postgres/JOIN/">Join 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/SUB-QUERY/">Sub-query 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/VIEW/">View 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/INDEX/">Index 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/Operator/">Operator 기본(연산자) 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/SEQUENCE/">Sequence 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/Function/">Function 오라클과 비교</a></li>
+								
+									<li class="nav-item "><a href="/Postgres/If-For-Case/">If문 For문 Case문 오라클과 비교</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Regular%20expression/regexp-with-java/">Regular expression</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-java/">자바에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-linux/">리눅스 에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-oracle/">오라클 에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-postgres/">포스그레 에서의 정규표현</a></li>
+								
+									<li class="nav-item "><a href="/Regular%20expression/regexp-with-ruby/">루비 에서의 정규표현</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level current">
+							
+							<a href="/Ruby/Rails-basic1/">Ruby</a>
+							<ul>
+								
+									<li class="nav-item current"><a href="/Ruby/Rails-basic1/">Rails 기초</a></li>
+								
+									<li class="nav-item "><a href="/Ruby/Rails-basic2/">scafflod 어떤놈이냐</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Scrap/explain-scrap/">Scrap</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Scrap/explain-scrap/">제대로된 설명</a></li>
+								
+									<li class="nav-item "><a href="/Scrap/Trendy-tool/">유행하는 툴</a></li>
+								
+									<li class="nav-item "><a href="/Scrap/video/">좋은 영상</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Security/EX/">Security</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Security/EX/">해킹 유형과 사례</a></li>
+								
+									<li class="nav-item "><a href="/Security/security-DB/">보안을 염두한 DB관리</a></li>
+								
+									<li class="nav-item "><a href="/Security/security-coding/">보안을 염두한 프로그래밍</a></li>
+								
+									<li class="nav-item "><a href="/Security/security-linux/">보안을 염두한 Linux관리</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Spring/Basic-Structure1/">Spring</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Spring/Basic-Structure1/">스프링 기본구조 1</a></li>
+								
+									<li class="nav-item "><a href="/Spring/Basic-Structure2/">스프링 기본구조 2</a></li>
+								
+									<li class="nav-item "><a href="/Spring/Dependency-Injection/">DI 의존주입</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Sub-Project/1Day/">Sub-Project</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Sub-Project/1Day/">서브프로젝트 첫날</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Trend&News/Ruby/">Trend&News</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Trend&News/Ruby/">Ruby는 뜬다?</a></li>
+								
+									<li class="nav-item "><a href="/Trend&News/Static-Site/">정적 사이트의 반란</a></li>
+								
+									<li class="nav-item "><a href="/Trend&News/GIthub/">마소 형님들이 한건 하심.</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/VScode/VScode-setting/">VScode</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/VScode/VScode-setting/">VScode 유용한 설정들</a></li>
+								
+									<li class="nav-item "><a href="/VScode/VScode-shortcutkey/">VScode 유용한 단축키</a></li>
+								
+									<li class="nav-item "><a href="/VScode/VScode-Extends/">VScode 유용한 확장어플</a></li>
+								
+							</ul>
+						</li>
+					
+						<li class="nav-item top-level ">
+							
+							<a href="/Youtuber/Youtuber/">Youtuber</a>
+							<ul>
+								
+									<li class="nav-item "><a href="/Youtuber/Youtuber/">학습과 커리어에 도움되는 유튜버</a></li>
+								
+							</ul>
+						</li>
+					
+				</ul>
+
+				<ul>
+					<li class="nav-item top-level ">
+						
+						<a href="/changelog/">Change Log</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<section class="main">
+			<div class="page-header">
+				<h2>Ruby</h2>
+				<h3>Rails 기초</h3>
+			</div>
+			<article class="content">
+				<h5><p>루비에서 많이 쓰이는 RubyGems</p>
+<ul>
+  <li>devise    :  유저등록이나 로그인 인증</li>
+  <li>omniauth  :  Oauth기능</li>
+  <li>kaminari  :  일람화면 페이징 기능</li>
+</ul>
+
+<p>프로젝트 생성</p>
+<pre><code class="language-git">rails new projectname
+</code></pre>
+
+<p>로컬서버 기동</p>
+<pre><code class="language-git">rails s
+</code></pre>
+<ul>
+  <li>루비의 로컬서버 기동은 puma라는 놈이 한다.</li>
+  <li>자바의 tomcat 같은놈이라고 보면됨</li>
+</ul>
+
+<p>home이라는 컨트롤러 생성</p>
+<ul>
+  <li>generate라고 다 안쓰고 g 라고 써도 된다.
+    <pre><code class="language-git">rails generate controller home
+rails g controller home
+</code></pre>
+    <p>이건 어디 만들어지냐면<br />
+app폴더의 컨트롤러스에. 이름_컨트롤러.rb 로 만들어진다<br />
+컨트롤러 클래스 안에있는 메서드는 액션이라고 부른다</p>
+  </li>
+</ul>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">HomeController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+    <span class="k">def</span> <span class="nf">index</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">hi</span>
+        <span class="vi">@show_message</span> <span class="o">=</span> <span class="kp">true</span>
+        <span class="vi">@message</span> <span class="o">=</span> <span class="s2">"run away"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">result</span>
+        <span class="vi">@plus_result</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:num1</span><span class="p">].</span><span class="nf">to_i</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="ss">:num2</span><span class="p">].</span><span class="nf">to_i</span>
+    <span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>이런식으로 작성했다고 하자<br />
+hi라는 메서드는 액션 메서드라 부른다</p>
+
+<p>이제 액션 메서드에 상응하는 뷰를 만들어줘야한다</p>
+
+<p>views폴더를 보면. <br />
+아까 컨트롤러 생성할때 home이라는 네임으로 컨트롤러를 생성했으므로<br />
+view의 하위에 home폴더가 있다.<br />
+거기서 오른쪽 클릭해서 뉴파일 해서 home폴더안에 뷰를 만들어줘야한다
+index.erb라고 만들어준다</p>
+
+<p>컨트롤러의 액션(메소드)명과 뷰의 파일명이 같으면 자동으로 매핑해준다<br />
+view는 화면단 내용을 작성하면 된다</p>
+
+<p>그다음 마지막으로 routes.rb를 작성한다</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">root</span> <span class="err">‘</span><span class="n">home</span><span class="c1">#index’</span>
+</code></pre></div></div>
+<p>루트 home컨트롤러 안에 있는 index라는 액션과 연결해 주세요 라는 내용임</p>
+
+<p>컨트롤러에서 view쪽으로 값을 전달하는 방법!!<br />
+컨트롤러의 액션 내부에 작성한다</p>
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vi">@message</span> <span class="o">=</span> <span class="err">“</span><span class="n">run</span> <span class="n">away</span><span class="err">”</span>
+</code></pre></div></div>
+
+<p>이제 뷰에서</p>
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="sx">% %&gt; </span><span class="o">&lt;</span><span class="sr">/p&gt;
+</span></code></pre></div></div>
+<p>이런식으로 작성</p>
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="sx">% 요안은 </span><span class="err">루비코드</span> <span class="err">작성</span> <span class="err">가능함</span> <span class="o">%&gt;</span>
+</code></pre></div></div>
+<p>참고로 erb 는 임베디드 루비 의 약자로써 erb안에는 루비코드도 적을수 있다</p>
+
+<hr />
+
+<p>위에까지는 컨트롤러안의 액션(매서드) 안에 변수를 뷰로 보내는것이였고</p>
+
+<p>이번에는<br />
+Form 태그로 request 메세지에 담아서 보낸다<br />
+params로 읽는다<br />
+url로 request메세지에 담아서 보낸다</p>
+
+<p>를 배워보자</p>
+
+<p>Form 태그는  아이디 비번 입력이라덩가 아니면 검색창이라덩가
+html의 폼태그를 말하고 그것에 들어간 데이터를 받아서 어떻게 할것인가임</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">“post”</span> <span class="na">action=</span><span class="s">“/login”</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">“text”</span> <span class="na">name=</span><span class="s">“id”</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">“password”</span> <span class="na">name=</span><span class="s">“pw”</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">“checkbox”</span> <span class="na">name=</span><span class="s">“remember”</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type =</span><span class="s">“submit”</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+<p>submit은 제출버튼임</p>
+
+<p>폼태그는 정보를 묶어서 보내는 태그.  폼과 input으로 이루어져있다</p>
+
+<p>Form -&gt; method : 어떤방식으로 정보를 전달할건지 (get or post)<br />
+Action : 어디로 정보를 전달할건지 (url)<br />
+Input(정보를받는태그) -&gt; type : 어떤 종류의 정보를 받을건지 <br />
+Name : 정보의 이름</p>
+
+<p>위의 코드는<br />
+이런식으로 보여지는데<br />
+폼 안에 
+아이디, 패스워드, 체크박스라는 인풋 테그들이 있다
+————————————————<br />
+Id : <br />
+Password :  <br />
+submit<br />
+————————————————</p>
+
+<p>중요<br />
+겟방식은 주소창에 요청내용이 모두 노출됨. 보안성이 취약함<br />
+예를들어 네이버 검색창에서 검색하면 위에 주소에 검색어가 뜸<br />
+보여주면 안되는정보를 요청할경우에는 포스트를 써야한다</p>
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span> <span class="c1">#=&gt; “xxxxx”  </span>
+<span class="n">params</span><span class="p">[</span><span class="ss">:pw</span><span class="p">]</span> <span class="c1">#=&gt; “xxxxx”  </span>
+<span class="n">params</span><span class="p">[</span><span class="ss">:remember</span><span class="p">]</span> <span class="c1">#=&gt; true  </span>
+</code></pre></div></div>
+<p>레일스에서는 이런식으로 값을 받게된다<br />
+input의 name에 적었던것으로 식별한다</p>
+
+<hr />
+<p>실습</p>
+
+<p>계산기 만들기<br />
+엑스 + 와이 = 제출<br />
+결과 페이지</p>
+<ol>
+  <li>컨트롤러 생성</li>
+  <li>액션 작성</li>
+  <li>루트 알비 작성</li>
+  <li>뷰 작성</li>
+</ol>
+
+<p>모델 생성하는법</p>
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rails</span> <span class="n">generate</span> <span class="n">model</span> <span class="n">post</span> 
+</code></pre></div></div>
+
+<p>모델이 만들어진 후에는</p>
+
+<p>config/migrate 폴더의 migration파일을 수정해준다</p>
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rake</span> <span class="n">db</span><span class="ss">:migrate</span>
+</code></pre></div></div>
+<p>를 쳐서 컴터가 마이그래이션 파일을 읽어서
+테이블을 만들어준다</p>
+
+</h5>
+				
+  					<div id="disqus_thread"></div>
+    <script>
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://techstock-biz.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+<noscript>Please enable JavaScript to view the 
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+                            
+				
+			</article>
+		</section>
+
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+				document.body.classList.toggle("nav-open");
+			});
+		</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142178407-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142178407-1');
+</script>
+
+
+	</body>
+</html>
