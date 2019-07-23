@@ -4,7 +4,7 @@
 title: Tech Stock
 url: "https://techstock.biz"
 baseurl:
-google_analytics_key: ""
+google_analytics_key: "UA-142178407-1"
 show_full_navigation: true
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
