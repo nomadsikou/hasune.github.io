@@ -39,6 +39,17 @@ curl -X POST -H "Content-Type: application/json" -d '{"Name":"superman", "Age":"
 - -H : 헤더를 보낸다
 - -d : 데이터를 전달한다(JSON데이터를 미니파이 하여 한줄짜리로 변경해서 복붙)
 
+JSON형식의 데이터가 저장되어있는 JSON_data.txt를 읽어드려서 리퀘스트 요청  
+(JSON_data.txt에 대량 JSON데이터를 담아서 보낼때 좋다)
+
+```git
+curl -X POST -H "Content-Type: application/json" -d @JSON_data.txt http://localhost/member
+```
+위와 같은 요청을 복수로 보낼때에는 &로 계속 이어붙혀도됨
+```git
+curl -X POST -H "Content-Type: application/json" -d @JSON_data1.txt http://localhost/member & curl -X POST -H "Content-Type: application/json" -d @JSON_data2.txt http://localhost/
+```
+
 
 curl에서 -w 옵션으로 포맷을 설정할수 있다.  
 포맷앞에 @를 붙이면 포맷을 지정한 파일을 설정할 수 있다.

@@ -1,5 +1,5 @@
 ---
-title: Branch관리
+title: Git에서 Branch관리
 category: Git&Github
 comments: true
 order: 2

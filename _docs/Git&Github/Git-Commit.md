@@ -1,5 +1,5 @@
 ---
-title: 기본중의 기본
+title: Git으로 커밋하기
 category: Git&Github
 comments: true
 order: 1
