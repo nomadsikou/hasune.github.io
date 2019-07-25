@@ -87,7 +87,7 @@ public class Book {
     private Integer price;
 }
 ```
-Book.java 에 어노데이션을 써주는것 만으로  
+Book.java 에 어노테이션을 써주는것 만으로  
 컴파일된 Book.class가 겟터, 셋터가 생성되어져서 컴파일된다.  
 (코드가 간결해지고, 그동안 귀찮았던 작업을 안해도 된다.)
 
