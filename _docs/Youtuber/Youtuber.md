@@ -16,11 +16,11 @@ order: 1
 >[김포프](https://www.youtube.com/channel/UC63J0Q5huHSlbNT3KxvAaHQ)  
 >[코딩의 신 아샬](https://www.youtube.com/channel/UCLLncfeIYljE0o_yUw7MkcA)
 
-■ 캐나다에서 살며 자바와 스프링의 달인??
-[백기선씨 채널](https://www.youtube.com/channel/UCwjaZf1WggZdbczi36bWlBA)
+■ 캐나다에서 살며 자바와 스프링의 달인??  
+>[백기선씨 채널](https://www.youtube.com/channel/UCwjaZf1WggZdbczi36bWlBA)
 
-■ 정말 노마드하게 사시는분. 나의 롤 모델?
-[노마드 코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ)
+■ 정말 노마드하게 사시는분. 나의 롤 모델?  
+>[노마드 코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ)
 
 ■ 실리콘벨리에서 개발하는 능력자  
 >[Teccboy](https://www.youtube.com/channel/UC0uDM1xZMNBAoW2xnzhAQ7g)    
