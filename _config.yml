@@ -18,10 +18,11 @@ social:
 name: Edition Template
 links:
 
-# -----
-# Build
+# Conversion
 markdown: kramdown
 highlighter: rouge
+
+# Build
 encoding: utf-8
 permalink: pretty
 
