@@ -56,7 +56,7 @@ pg_dump -U username -h localhost -p 5432 -Fc -d Database_name > dataBak.dmp
     - -Fc 가장 많이 쓰는 기본형 아카이브
     - -Fp 텍스트 파일로 출력 (이럴때는 백업파일의 확장자를 sql로 해주자)
     - -Ft tar형식의 아카이브로 출력
-- -t 특정 테이블 지정. 이놈은 복수로 여러개 쓸 수 있다 eX)-t product product_detail 
+- -t 특정 테이블 지정. 이놈은 복수로 여러개 쓸 수 있다 ex) -t product product_detail 
 - -a 데이터 만을 덤프
 - -h 호스트명 지정. (이놈은 /etc/hosts 를 cat해서 확인해보면 됨)
 - -d 데이터베이스 명
