@@ -84,3 +84,14 @@ git merge prototype # prototype라는 브랜치를 master쪽에 합침
 ```
 
 ---
+
+마지막으로..  
+머지 작업이 제대로 잘 끝나고난 후  
+더이상 사용하지 않는 브랜치는 바로바로 삭제를~
+```git
+git branch 
+*master
+UsedBranch   <-- 머지 끝나고 더이상 안쓰는놈이라고 할때
+
+git branch -d UsedBranch
+```
