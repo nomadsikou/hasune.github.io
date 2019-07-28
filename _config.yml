@@ -20,6 +20,7 @@ links:
 
 # -----
 # Build
+highlight: rouge
 encoding: utf-8
 permalink: pretty
 
