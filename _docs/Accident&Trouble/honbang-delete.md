@@ -23,7 +23,7 @@ order: 1
 .  
 아직까지 문제의 심각성을 파악못하고 있음..
 
-![Delete](./honbang-delete.png)
+![Delete](./honbang-delete-nextday.png)
 
 ---
 
