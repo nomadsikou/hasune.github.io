@@ -1,6 +1,7 @@
 ---
 title: 혼방 데이터 삭제하고 상황 회피
 category: Accident&Trouble
+tags: [혼방, 데이터, 혼방 데이터, 삭제]
 comments: true
 order: 1
 ---

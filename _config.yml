@@ -20,7 +20,8 @@ links:
 
 # -----
 # Build
-highlight: rouge
+markdown: kramdown
+highlighter: rouge
 encoding: utf-8
 permalink: pretty
 
