@@ -1,5 +1,5 @@
 ---
-title: Pull Fetch Clone Rebase Fork
+title: Pull Fetch Clone Fork
 category: Git&Github
 comments: true
 order: 4
@@ -35,7 +35,5 @@ fork를 하면 누가 포크해갔는지 원작자에게 뜬다고함.
 순서가, fork -> (내 리모트 리포지토리에 복사되면) -> clone   
 이런 순으로 작업하면 된다.
 
-■ rebase  
-이건 좀.. 어렵네 ㅋㅋ  공부좀 하고 다시 적어야쥥 ㅋㅋ
 
 

@@ -49,29 +49,27 @@ su - postgres
 가장 기본형은
 
 ```git
-pg_dump -U username -h localhost -p 5432 -Fc -d Database_name > dataBak.dmp
+pg_dump -Fc -h localhost -p 5432 -U username -d Database_name > dataBak.dmp
 ```
-- -U 유저명 지정
 -  -F 덤프할 포맷을 설정(설정포맷을 연이어 써준다)
     - -Fc 가장 많이 쓰는 기본형 아카이브
     - -Fp 텍스트 파일로 출력 (이럴때는 백업파일의 확장자를 sql로 해주자)
     - -Ft tar형식의 아카이브로 출력
-- -t 특정 테이블 지정. 이놈은 복수로 여러개 쓸 수 있다 ex) -t product product_detail 
-- -a 데이터 만을 덤프
 - -h 호스트명 지정. (이놈은 /etc/hosts 를 cat해서 확인해보면 됨)
-- -d 데이터베이스 명
 - -p 포트번호 (보안을 위해서 default포트번호를 바꿔쓰기도 하니 살펴볼 필요 있음)
+- -U 유저명 지정
+- -d 데이터베이스 명
+- -t 특정 테이블 지정. 이놈은 복수로 여러개 쓸 수 있다 ex) -t product -t product_detail 
+- -a 데이터 만을 덤프
 
 
 ■ 복원작업은 pg_restore 라는 놈으로 작업
 
-가장 기본형
 ```git
-pg_restore -Fc -c -d Database_name -U postgres dataBak.dmp
+pg_restore -a -h localhost -t product -t product_detail -p 5432 -U username -d Database_name Database_name -U postgres /home/bak_data/dataBak.dmp
 ```
-
-- -c 데이터베이스 작성 전에 테이블 등을 드롭시킨다,.
-- -F 백업 파일의 형식을 지정해준다.(위의 덤프할때와 같이 맞춰주면됨)
-- -d 데이터베이스명 지정
+- -a 데이터 만을 복원
+- -t 특정 테이블을 지정(-t product -t product_detail : 상품 테이블과 상품상세 테이블을 지정하여복원)  
+>나머지는 덤프와 옵션은 비슷하니 man을 보고 참고하면 될듯
 
 
