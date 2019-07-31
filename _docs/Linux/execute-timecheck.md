@@ -1,5 +1,5 @@
 ---
-title: Linux 시간측정
+title: Linux 실행/처리 시간측정
 category: Linux
 comments: true
 order: 7
