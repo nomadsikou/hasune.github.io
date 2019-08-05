@@ -3,6 +3,12 @@ layout: null
 sitemap: false
 ---
 
+$base-font-family: 'Open Sans', sans-serif;
+$head-font-family: 'Open Sans', sans-serif;
+$base-font-size:   14px;
+$base-font-weight: 300;
+
+
 $baseurl: "{{ site.baseurl }}";
 $body-background-color: #2B2E31;
 
